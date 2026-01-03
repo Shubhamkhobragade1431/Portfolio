@@ -1,0 +1,33 @@
+<div class="skills-page">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="section-title fade-in">Technical Skills</h1>
+      <p class="section-subtitle fade-in">My technical expertise and proficiency levels</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="skills-container">
+        <mat-card class="skill-category-card" *ngFor="let skillCategory of skills">
+          <mat-card-header>
+            <mat-card-title>{{ skillCategory.category }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="skill-item" *ngFor="let skill of skillCategory.items">
+              <div class="skill-header">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}%</span>
+              </div>
+              <mat-progress-bar 
+                mode="determinate" 
+                [value]="skill.level"
+                [color]="skill.level >= 80 ? 'primary' : 'accent'"
+              ></mat-progress-bar>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+</div>

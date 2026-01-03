@@ -1,0 +1,122 @@
+<div class="contact-page" *ngIf="personalInfo">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="section-title fade-in">Get In Touch</h1>
+      <p class="section-subtitle fade-in">Have a question or want to work together?</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-content">
+        <!-- Contact Form -->
+        <mat-card class="contact-form-card">
+          <mat-card-header>
+            <mat-card-title>Send Me a Message</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="success-message" *ngIf="submitted">
+              <mat-icon>check_circle</mat-icon>
+              <p>Thank you! Your message has been sent successfully.</p>
+            </div>
+            
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!submitted">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Your Name</mat-label>
+                <input matInput formControlName="name" placeholder="John Doe">
+                <mat-icon matPrefix>person</mat-icon>
+                <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
+                  Name is required
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Your Email</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="john@example.com">
+                <mat-icon matPrefix>email</mat-icon>
+                <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+                  Please enter a valid email
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Subject</mat-label>
+                <input matInput formControlName="subject" placeholder="Project Inquiry">
+                <mat-icon matPrefix>subject</mat-icon>
+                <mat-error *ngIf="contactForm.get('subject')?.hasError('required')">
+                  Subject is required
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Message</mat-label>
+                <textarea matInput formControlName="message" rows="6" placeholder="Your message here..."></textarea>
+                <mat-icon matPrefix>message</mat-icon>
+                <mat-error *ngIf="contactForm.get('message')?.hasError('required')">
+                  Message is required
+                </mat-error>
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid" class="submit-btn">
+                <mat-icon>send</mat-icon>
+                Send Message
+              </button>
+            </form>
+
+            <button mat-raised-button *ngIf="submitted" (click)="submitted = false" class="reset-btn">
+              <mat-icon>refresh</mat-icon>
+              Send Another Message
+            </button>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Contact Info -->
+        <div class="contact-info-section">
+          <mat-card class="info-card">
+            <mat-card-content>
+              <div class="info-item">
+                <mat-icon>email</mat-icon>
+                <div>
+                  <h4>Email</h4>
+                  <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="info-card">
+            <mat-card-content>
+              <div class="info-item">
+                <mat-icon>phone</mat-icon>
+                <div>
+                  <h4>Phone</h4>
+                  <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="info-card">
+            <mat-card-content>
+              <div class="info-item">
+                <mat-icon>location_on</mat-icon>
+                <div>
+                  <h4>Location</h4>
+                  <p>{{ personalInfo.location }}</p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Action Button -->
+  <a [href]="'mailto:' + personalInfo.email" class="fab" matTooltip="Send Email" aria-label="Send email">
+    <mat-icon>email</mat-icon>
+  </a>
+</div>

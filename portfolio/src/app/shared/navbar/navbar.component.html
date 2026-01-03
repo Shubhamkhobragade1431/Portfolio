@@ -1,0 +1,56 @@
+<!-- Sticky Navigation Bar -->
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <a (click)="scrollToSection('home')" class="brand" style="cursor: pointer;">
+      <span class="brand-name">SK</span>
+      <span class="brand-text">Shubham Khobragade</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <button 
+        *ngFor="let link of navLinks" 
+        (click)="scrollToSection(link.section)"
+        mat-button
+        class="nav-link"
+      >
+        <mat-icon>{{ link.icon }}</mat-icon>
+        {{ link.label }}
+      </button>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <button 
+      mat-icon-button 
+      (click)="toggleTheme()" 
+      class="theme-toggle"
+      [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
+    >
+      <mat-icon>{{ isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      mat-icon-button 
+      class="mobile-menu-btn" 
+      [matMenuTriggerFor]="mobileMenu"
+      aria-label="Open menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<!-- Mobile Menu -->
+<mat-menu #mobileMenu="matMenu" class="mobile-menu">
+  <button 
+    *ngFor="let link of navLinks" 
+    (click)="scrollToSection(link.section)"
+    mat-menu-item
+    class="mobile-nav-link"
+  >
+    <mat-icon>{{ link.icon }}</mat-icon>
+    <span>{{ link.label }}</span>
+  </button>
+</mat-menu>

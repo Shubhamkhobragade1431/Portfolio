@@ -1,0 +1,42 @@
+<div class="experience-page">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="section-title fade-in">Work Experience</h1>
+      <p class="section-subtitle fade-in">My professional journey and career milestones</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let exp of experiences; let i = index" [class.current]="exp.current">
+          <div class="timeline-marker">
+            <mat-icon>{{ exp.current ? 'star' : 'work' }}</mat-icon>
+          </div>
+          <mat-card class="timeline-content">
+            <mat-card-header>
+              <mat-card-title>{{ exp.title }}</mat-card-title>
+              <mat-card-subtitle>{{ exp.company }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="experience-meta">
+                <div class="meta-item">
+                  <mat-icon>calendar_today</mat-icon>
+                  <span>{{ exp.period }}</span>
+                  <span class="current-badge" *ngIf="exp.current">Current</span>
+                </div>
+                <div class="meta-item" *ngIf="exp.location">
+                  <mat-icon>location_on</mat-icon>
+                  <span>{{ exp.location }}</span>
+                </div>
+              </div>
+              <p class="experience-description" *ngIf="exp.description">
+                {{ exp.description }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

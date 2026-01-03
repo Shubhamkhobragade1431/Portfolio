@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+/* Include Angular Material core styles */
+@include mat.core();
+
+/**
+ * Custom Theme Configuration
+ * Light and Dark themes for the portfolio
+ */
+
+// Define custom color palettes
+$custom-primary: mat.define-palette(mat.$indigo-palette, 600);
+$custom-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+// Light Theme
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Dark Theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Apply default light theme
+@include mat.all-component-themes($light-theme);
+
+// Dark theme styles
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+  
+  background-color: #121212;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+// Light theme styles
+.light-theme {
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/**
+ * Global Styles
+ */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Utility classes
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.section {
+  padding: 80px 0;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-bottom: 48px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+.dark-theme .section-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+// Animation classes
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}

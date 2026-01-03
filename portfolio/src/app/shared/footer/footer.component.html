@@ -1,0 +1,32 @@
+<!-- Application Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Footer Content -->
+    <div class="footer-content">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h3>Shubham Khobragade</h3>
+        <p>Software Developer | .NET Developer</p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-social">
+        <a 
+          *ngFor="let link of socialLinks" 
+          [href]="link.url" 
+          [attr.aria-label]="link.name"
+          mat-icon-button
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <mat-icon>{{ link.icon }}</mat-icon>
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>&copy; {{ currentYear }} Shubham Khobragade. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

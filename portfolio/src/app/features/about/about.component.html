@@ -1,0 +1,57 @@
+<div class="about-page" *ngIf="personalInfo">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="section-title fade-in">About Me</h1>
+      <p class="section-subtitle fade-in">Get to know more about my background and expertise</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-content">
+        <mat-card class="info-card">
+          <mat-card-content>
+            <h2>{{ personalInfo.name }}</h2>
+            <h3>{{ personalInfo.role }}</h3>
+            <p class="summary">{{ personalInfo.profileSummary }}</p>
+            
+            <div class="contact-info">
+              <div class="info-row">
+                <mat-icon>email</mat-icon>
+                <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
+              </div>
+              <div class="info-row">
+                <mat-icon>phone</mat-icon>
+                <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
+              </div>
+              <div class="info-row">
+                <mat-icon>location_on</mat-icon>
+                <span>{{ personalInfo.location }}</span>
+              </div>
+              <div class="info-row">
+                <mat-icon>work</mat-icon>
+                <span>{{ personalInfo.experience }} of Experience</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="education-card" *ngIf="education.length > 0">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>school</mat-icon>
+              Education
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="education-item" *ngFor="let edu of education">
+              <h4>{{ edu.degree }}</h4>
+              <p>{{ edu.institution }}</p>
+              <span class="year" *ngIf="edu.year">{{ edu.year }}</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+</div>
