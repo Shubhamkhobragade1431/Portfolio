@@ -1,0 +1,26 @@
+<section class="experience-section" id="experience">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">My professional journey so far</p>
+    </div>
+
+    <div class="timeline">
+      @for (exp of experiences; track exp.id) {
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">{{ exp.period }}</span>
+            <h3 class="timeline-position">{{ exp.position }}</h3>
+            <h4 class="timeline-company">{{ exp.company }}</h4>
+            <p class="timeline-description">{{ exp.description }}</p>
+            @if (exp.location) {
+              <span class="timeline-location">{{ exp.location }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

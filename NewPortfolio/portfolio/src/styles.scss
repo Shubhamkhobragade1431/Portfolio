@@ -1,0 +1,80 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(135deg, #e6f0ff, #ffffff, #cce6ff);
+  color: #003366;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Scroll margin for fixed navbar
+section {
+  scroll-margin-top: 80px;
+}
+
+// Responsive container padding
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+// GSAP ScrollTrigger styles
+.gsap-marker-start,
+.gsap-marker-end {
+  position: absolute;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+  display: none;
+}
+
+// Blue and white theme
+.blue-bg {
+  background: linear-gradient(135deg, #e6f0ff, #ffffff, #cce6ff);
+}
+
+.white-bg {
+  background: #ffffff;
+}
+
+.blue-text {
+  color: #003366;
+}
+
+.accent-blue {
+  color: #0066cc;
+}
+
+.accent-light-blue {
+  color: #0099ff;
+}
+
+:root {
+  --primary-blue: #003366;
+  --secondary-blue: #0066cc;
+  --accent-blue: #0099ff;
+  --light-blue: #e6f0ff;
+  --white: #ffffff;
+  --border-blue: #cce6ff;
+}
