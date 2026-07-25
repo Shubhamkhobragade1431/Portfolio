@@ -28,10 +28,10 @@ export class PortfolioDataService {
       name: 'Shubham Khobragade',
       role: 'Software Developer | .NET Developer',
       location: 'Pune, Maharashtra, India',
-      experience: '3+ Years',
+      experience: '4+ Years',
       email: 'shubhamkhobragadeofficial@gmail.com',
       phone: '+91 8793208069',
-      profileSummary: 'Dot NET Developer with 3+ years of experience in building scalable enterprise-level web applications using ASP.NET Core, Web API, SQL Server, and Angular. Strong experience in N-tier architecture, Repository & Service pattern, RESTful APIs, and SOLID principles.'
+      profileSummary: 'Dot NET Developer with 4+ years of experience in building scalable enterprise-level web applications using ASP.NET Core, Web API, SQL Server, and Angular. Strong experience in N-tier architecture, Repository & Service pattern, RESTful APIs, and SOLID principles.'
     };
     return of(info);
   }
