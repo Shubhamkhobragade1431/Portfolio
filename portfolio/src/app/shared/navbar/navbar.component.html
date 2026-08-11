@@ -15,7 +15,7 @@
         mat-button
         class="nav-link"
       >
-        <mat-icon>{{ link.icon }}</mat-icon>
+        <i class="bi" [ngClass]="link.icon" aria-hidden="true"></i>
         {{ link.label }}
       </button>
     </nav>
@@ -27,7 +27,7 @@
       class="theme-toggle"
       [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
     >
-      <mat-icon>{{ isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      <i class="bi" [ngClass]="isDarkMode() ? 'bi-sun-fill' : 'bi-moon-fill'" aria-hidden="true"></i>
     </button>
 
     <!-- Mobile Menu Button -->
@@ -37,7 +37,7 @@
       [matMenuTriggerFor]="mobileMenu"
       aria-label="Open menu"
     >
-      <mat-icon>menu</mat-icon>
+      <i class="bi bi-list" aria-hidden="true"></i>
     </button>
   </div>
 </mat-toolbar>
@@ -50,7 +50,7 @@
     mat-menu-item
     class="mobile-nav-link"
   >
-    <mat-icon>{{ link.icon }}</mat-icon>
+    <i class="bi" [ngClass]="link.icon" aria-hidden="true"></i>
     <span>{{ link.label }}</span>
   </button>
 </mat-menu>

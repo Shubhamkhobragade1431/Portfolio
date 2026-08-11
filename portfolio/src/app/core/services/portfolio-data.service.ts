@@ -26,12 +26,16 @@ export class PortfolioDataService {
   getPersonalInfo(): Observable<PersonalInfo> {
     const info: PersonalInfo = {
       name: 'Shubham Khobragade',
-      role: 'Software Developer | .NET Developer',
+      role: 'Software Developer | Full Stack .NET Developer',
       location: 'Pune, Maharashtra, India',
       experience: '4+ Years',
       email: 'shubhamkhobragadeofficial@gmail.com',
       phone: '+91 879320****',
-      profileSummary: 'Dot NET Developer with 4+ years of experience in building scalable enterprise-level web applications using ASP.NET Core, Web API, SQL Server, and Angular. Strong experience in N-tier architecture, Repository & Service pattern, RESTful APIs, and SOLID principles.'
+      profileSummary: [
+        'Full Stack .NET Developer skilled in ASP.NET Core, C#, Angular, JavaScript, SQL Server, and Web API for building dynamic, high-performing web applications. Developed scalable RESTful APIs and responsive user interfaces using Angular, Bootstrap, and CSS3, resulting in a measurable improvement in user engagement metrics.',
+        'Implemented efficient data access layers utilizing ADO.NET and Entity Framework, leading to optimized data retrieval speeds and enhanced application performance. Created and maintained custom middleware for authentication, logging, and error handling, bolstering application security and streamlining debugging processes.',
+        'Built and managed RESTful Web APIs for efficient data exchange between client and server systems. Strong experience in Systems Analysis, Design, Development, and Implementation of Web and Windows applications using N-tier Architecture across all stages of the SDLC. '
+      ]
     };
     return of(info);
   }

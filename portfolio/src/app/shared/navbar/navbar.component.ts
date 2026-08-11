@@ -2,7 +2,6 @@ import { Component, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { ThemeService } from '../../core/services/theme.service';
 
@@ -17,7 +16,6 @@ import { ThemeService } from '../../core/services/theme.service';
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
     MatMenuModule
   ],
   templateUrl: './navbar.component.html',
@@ -30,12 +28,12 @@ export class NavbarComponent {
   isDarkMode = computed(() => this.themeService.isDarkMode());
 
   navLinks = [
-    { section: 'home', label: 'Home', icon: 'home' },
-    { section: 'about', label: 'About', icon: 'person' },
-    { section: 'skills', label: 'Skills', icon: 'code' },
-    { section: 'experience', label: 'Experience', icon: 'work' },
-    { section: 'projects', label: 'Projects', icon: 'folder' },
-    // { section: 'contact', label: 'Contact', icon: 'email' }
+    { section: 'home', label: 'Home', icon: 'bi-house-fill' },
+    { section: 'about', label: 'About', icon: 'bi-person-fill' },
+    { section: 'skills', label: 'Skills', icon: 'bi-code-slash' },
+    { section: 'experience', label: 'Experience', icon: 'bi-briefcase-fill' },
+    { section: 'projects', label: 'Projects', icon: 'bi-folder-fill' },
+    // { section: 'contact', label: 'Contact', icon: 'bi-envelope-fill' }
   ];
 
   constructor(public themeService: ThemeService) {}

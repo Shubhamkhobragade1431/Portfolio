@@ -10,7 +10,7 @@ export interface PersonalInfo {
   experience: string;
   email: string;
   phone: string;
-  profileSummary: string;
+  profileSummary: string[];
 }
 
 export interface Skill {
