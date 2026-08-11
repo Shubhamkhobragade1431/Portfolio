@@ -30,7 +30,7 @@ export class PortfolioDataService {
       location: 'Pune, Maharashtra, India',
       experience: '4+ Years',
       email: 'shubhamkhobragadeofficial@gmail.com',
-      phone: '+91 8793208069',
+      phone: '+91 879320****',
       profileSummary: 'Dot NET Developer with 4+ years of experience in building scalable enterprise-level web applications using ASP.NET Core, Web API, SQL Server, and Angular. Strong experience in N-tier architecture, Repository & Service pattern, RESTful APIs, and SOLID principles.'
     };
     return of(info);

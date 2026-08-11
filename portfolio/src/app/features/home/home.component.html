@@ -2,7 +2,7 @@
 <div class="single-page-portfolio" *ngIf="personalInfo">
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section id="home" class="hero">
 
   <!-- LEFT CONTENT -->
   <div class="hero-content">
@@ -20,9 +20,11 @@
     </div>
 
     <p class="description">
-      Results-driven developer with 4+ years of experience in building
-      scalable enterprise applications using ASP.NET Core, Angular,
-      Web API, SQL Server, Azure, and modern technologies.
+      Dot NET Developer with 4+ years of experience building scalable, enterprise-level web applications using .NET 
+Core, Web API, and SQL Server. Highly skilled in N-tier architecture, repository and service pattern 
+implementation, ORM frameworks, and RESTful API design. Proficient in C# and SQL Server for backend 
+development, and experienced in front end technologies including HTML, CSS, JavaScript, and TypeScript with 
+Angular.
     </p>
 
     <!-- BUTTONS -->
@@ -51,7 +53,7 @@
 
       <div class="social-links">
 
-        <a href="#" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/shubham-khobragade-680709294" aria-label="LinkedIn">
           in
         </a>
 
@@ -118,44 +120,57 @@
       <p class="section-subtitle">Get to know more about my background and expertise</p>
 
       <div class="about-content">
-        <div class="card info-card shadow-sm border-0">
-          <div class="card-content p-4 p-md-5">
-            <div class="about-grid row g-4">
-              <div class="about-text col-lg-7">
-                <h3>{{ personalInfo.role }}</h3>
-                <p class="summary">{{ personalInfo.profileSummary }}</p>
-              </div>
+        <div class="about-intro">
+          <span class="about-kicker">A little about me</span>
+          <h3>{{ personalInfo.name }}</h3>
+          <p class="about-role">{{ personalInfo.role }}</p>
+          <p class="summary">{{ personalInfo.profileSummary }}</p>
+          <div class="about-focus">
+            <span>Backend architecture</span>
+            <span>REST APIs</span>
+            <span>Angular applications</span>
+          </div>
+        </div>
 
-              <div class="contact-info-grid col-lg-5">
-                <div class="info-row">
-                  <span class="icon" aria-hidden="true">email</span>
-                  <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
-                </div>
-                <div class="info-row">
-                  <span class="icon" aria-hidden="true">phone</span>
-                  <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
-                </div>
-                <div class="info-row">
-                  <span class="icon" aria-hidden="true">location_on</span>
-                  <span>{{ personalInfo.location }}</span>
-                </div>
-                <div class="info-row">
-                  <span class="icon" aria-hidden="true">work</span>
-                  <span>{{ personalInfo.experience }} of Experience</span>
-                </div>
+        <div class="about-details">
+          <div class="details-heading">
+            <h3>Let's connect</h3>
+          </div>
+          <div class="contact-info-grid">
+            <div class="info-row">
+              <i class="bi bi-envelope-fill icon" aria-hidden="true"></i>
+              <div>
+                <small>Email</small>
+                <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
               </div>
             </div>
-
-            <!-- Education -->
-            <div class="education-section mt-4 pt-4 border-top" *ngIf="education.length > 0">
-              <h4 class="d-flex align-items-center gap-2 mb-3">
-                <span class="icon" aria-hidden="true">school</span>
-                Education
-              </h4>
-              <div class="education-item p-3 mb-3" *ngFor="let edu of education">
-                <strong>{{ edu.degree }}</strong>
-                <p>{{ edu.institution }}</p>
+            <div class="info-row">
+              <i class="bi bi-telephone-fill icon" aria-hidden="true"></i>
+              <div>
+                <small>Phone</small>
+                <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
               </div>
+            </div>
+            <div class="info-row">
+              <i class="bi bi-geo-alt-fill icon" aria-hidden="true"></i>
+              <div>
+                <small>Based in</small>
+                <span>{{ personalInfo.location }}</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="bi bi-briefcase-fill icon" aria-hidden="true"></i>
+              <div>
+                <small>Experience</small>
+                <span>{{ personalInfo.experience }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="education-section" *ngIf="education.length > 0">
+            <h4><span class="icon" aria-hidden="true">school</span> Education</h4>
+            <div class="education-item" *ngFor="let edu of education">
+              <strong>{{ edu.degree }}</strong>
+              <p>{{ edu.institution }}</p>
             </div>
           </div>
         </div>
@@ -360,7 +375,7 @@
           <div class="card info-card shadow-sm border-0">
             <div class="card-content">
               <div class="info-item">
-                <span class="icon" aria-hidden="true"><i class="bi bi-envelope">email</i></span>
+                <i class="bi bi-envelope-fill icon" aria-hidden="true"></i>
                 <div>
                   <h4>Email</h4>
                   <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
@@ -372,7 +387,7 @@
           <div class="card info-card">
             <div class="card-content">
               <div class="info-item">
-                <span class="icon" aria-hidden="true">phone</span>
+                <i class="bi bi-telephone-fill icon" aria-hidden="true"></i>
                 <div>
                   <h4>Phone</h4>
                   <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
@@ -384,7 +399,7 @@
           <div class="card info-card">
             <div class="card-content">
               <div class="info-item">
-                <span class="icon" aria-hidden="true">location_on</span>
+                <i class="bi bi-geo-alt-fill icon" aria-hidden="true"></i>
                 <div>
                   <h4>Location</h4>
                   <p>{{ personalInfo.location }}</p>
@@ -398,7 +413,7 @@
   </section>
 
   <!-- Floating Action Button -->
-  <a [href]="'mailto:' + personalInfo.email" class="fab" aria-label="Send email">
-    <span class="icon" aria-hidden="true">email</span>
+  <a [href]="'mailto:' + personalInfo.email" class="fab" aria-label="Send email"><i class="bi bi-envelope-fill fs-2"></i>
+   
   </a>
 </div>
