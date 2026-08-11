@@ -1,10 +1,10 @@
 <!-- Single Page Scrolling Portfolio -->
 <div class="single-page-portfolio" *ngIf="personalInfo">
-  
+
   <!-- Hero Section -->
   <section id="home" class="hero-section">
-    <div class="container">
-      <div class="hero-content fade-in">
+    <div class="container py-5">
+      <div class="hero-content fade-in text-center">
         <div class="hero-avatar">
           <div class="avatar-circle">
             <span class="avatar-text">{{ personalInfo.name.charAt(0) }}</span>
@@ -14,31 +14,31 @@
         <h1 class="hero-title">
           Hi, I'm <span class="highlight">{{ personalInfo.name }}</span>
         </h1>
-        
+
         <h2 class="hero-subtitle">{{ personalInfo.role }}</h2>
-        
+
         <p class="hero-description">
           {{ personalInfo.profileSummary }}
         </p>
 
-        <div class="hero-actions">
-          <button mat-raised-button color="primary" class="action-btn" (click)="scrollToSection('projects')">
-            <mat-icon>folder</mat-icon>
+        <div class="hero-actions d-flex justify-content-center flex-wrap gap-3 mb-4">
+          <button type="button" class="action-btn btn btn-primary rounded-pill px-4 py-2" (click)="scrollToSection('projects')">
+            <span class="icon me-2" aria-hidden="true">folder</span>
             View My Projects
           </button>
-          <button mat-stroked-button color="primary" class="action-btn" (click)="scrollToSection('contact')">
-            <mat-icon>email</mat-icon>
+          <button type="button" class="action-btn btn btn-outline-primary rounded-pill px-4 py-2" (click)="scrollToSection('contact')">
+            <span class="icon me-2" aria-hidden="true">email</span>
             Get In Touch
           </button>
         </div>
 
-        <div class="quick-info">
-          <div class="info-item">
-            <mat-icon>location_on</mat-icon>
+        <div class="quick-info d-flex justify-content-center flex-wrap gap-4">
+          <div class="info-item d-flex align-items-center gap-2">
+            <span class="icon" aria-hidden="true">location_on</span>
             <span>{{ personalInfo.location }}</span>
           </div>
-          <div class="info-item">
-            <mat-icon>work</mat-icon>
+          <div class="info-item d-flex align-items-center gap-2">
+            <span class="icon" aria-hidden="true">work</span>
             <span>{{ personalInfo.experience }} Experience</span>
           </div>
         </div>
@@ -51,49 +51,49 @@
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <p class="section-subtitle">Get to know more about my background and expertise</p>
-      
+
       <div class="about-content">
-        <mat-card class="info-card">
-          <mat-card-content>
-            <div class="about-grid">
-              <div class="about-text">
+        <div class="card info-card shadow-sm border-0">
+          <div class="card-content p-4 p-md-5">
+            <div class="about-grid row g-4">
+              <div class="about-text col-lg-7">
                 <h3>{{ personalInfo.role }}</h3>
                 <p class="summary">{{ personalInfo.profileSummary }}</p>
               </div>
-              
-              <div class="contact-info-grid">
+
+              <div class="contact-info-grid col-lg-5">
                 <div class="info-row">
-                  <mat-icon>email</mat-icon>
+                  <span class="icon" aria-hidden="true">email</span>
                   <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
                 </div>
                 <div class="info-row">
-                  <mat-icon>phone</mat-icon>
+                  <span class="icon" aria-hidden="true">phone</span>
                   <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
                 </div>
                 <div class="info-row">
-                  <mat-icon>location_on</mat-icon>
+                  <span class="icon" aria-hidden="true">location_on</span>
                   <span>{{ personalInfo.location }}</span>
                 </div>
                 <div class="info-row">
-                  <mat-icon>work</mat-icon>
+                  <span class="icon" aria-hidden="true">work</span>
                   <span>{{ personalInfo.experience }} of Experience</span>
                 </div>
               </div>
             </div>
 
             <!-- Education -->
-            <div class="education-section" *ngIf="education.length > 0">
-              <h4>
-                <mat-icon>school</mat-icon>
+            <div class="education-section mt-4 pt-4 border-top" *ngIf="education.length > 0">
+              <h4 class="d-flex align-items-center gap-2 mb-3">
+                <span class="icon" aria-hidden="true">school</span>
                 Education
               </h4>
-              <div class="education-item" *ngFor="let edu of education">
+              <div class="education-item p-3 mb-3" *ngFor="let edu of education">
                 <strong>{{ edu.degree }}</strong>
                 <p>{{ edu.institution }}</p>
               </div>
             </div>
-          </mat-card-content>
-        </mat-card>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -103,26 +103,24 @@
     <div class="container">
       <h2 class="section-title">Technical Skills</h2>
       <p class="section-subtitle">My technical expertise and proficiency levels</p>
-      
-      <div class="skills-grid">
-        <mat-card class="skill-category-card" *ngFor="let skillCategory of skills">
-          <mat-card-header>
-            <mat-card-title>{{ skillCategory.category }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
+
+      <div class="skills-grid row g-4">
+        <div class="card skill-category-card shadow-sm border-0 col-12 col-md-6 col-xl-4" *ngFor="let skillCategory of skills">
+          <div class="card-header">
+            <h3 class="card-title">{{ skillCategory.category }}</h3>
+          </div>
+          <div class="card-content">
             <div class="skill-item" *ngFor="let skill of skillCategory.items">
-              <div class="skill-header">
+              <div class="skill-header d-flex justify-content-between align-items-center mb-2">
                 <span class="skill-name">{{ skill.name }}</span>
                 <span class="skill-level">{{ skill.level }}%</span>
               </div>
-              <mat-progress-bar 
-                mode="determinate" 
-                [value]="skill.level"
-                [color]="skill.level >= 80 ? 'primary' : 'accent'"
-              ></mat-progress-bar>
+              <div class="progress-bar progress" role="progressbar" [attr.aria-valuenow]="skill.level" aria-valuemin="0" aria-valuemax="100">
+                <span [style.width.%]="skill.level"></span>
+              </div>
             </div>
-          </mat-card-content>
-        </mat-card>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -132,34 +130,34 @@
     <div class="container">
       <h2 class="section-title">Work Experience</h2>
       <p class="section-subtitle">My professional journey and career milestones</p>
-      
+
       <div class="timeline">
-        <div class="timeline-item" *ngFor="let exp of experiences; let i = index" [class.current]="exp.current">
+        <div class="timeline-item position-relative" *ngFor="let exp of experiences; let i = index" [class.current]="exp.current">
           <div class="timeline-marker">
-            <mat-icon>{{ exp.current ? 'star' : 'work' }}</mat-icon>
+            <span class="icon" aria-hidden="true">{{ exp.current ? 'star' : 'work' }}</span>
           </div>
-          <mat-card class="timeline-content">
-            <mat-card-header>
-              <mat-card-title>{{ exp.title }}</mat-card-title>
-              <mat-card-subtitle>{{ exp.company }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="experience-meta">
-                <div class="meta-item">
-                  <mat-icon>calendar_today</mat-icon>
+          <div class="card timeline-content shadow-sm border-0">
+            <div class="card-header">
+              <h3 class="card-title">{{ exp.title }}</h3>
+              <h4 class="card-subtitle">{{ exp.company }}</h4>
+            </div>
+            <div class="card-content">
+              <div class="experience-meta d-flex flex-column gap-2 mb-3">
+                <div class="meta-item d-flex align-items-center gap-2">
+                  <span class="icon" aria-hidden="true">calendar_today</span>
                   <span>{{ exp.period }}</span>
                   <span class="current-badge" *ngIf="exp.current">Current</span>
                 </div>
                 <div class="meta-item" *ngIf="exp.location">
-                  <mat-icon>location_on</mat-icon>
+                  <span class="icon" aria-hidden="true">location_on</span>
                   <span>{{ exp.location }}</span>
                 </div>
               </div>
               <p class="experience-description" *ngIf="exp.description">
                 {{ exp.description }}
               </p>
-            </mat-card-content>
-          </mat-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -170,24 +168,24 @@
     <div class="container">
       <h2 class="section-title">My Projects</h2>
       <p class="section-subtitle">Enterprise applications I've developed using ASP.NET Core, Angular, and modern technologies</p>
-      
-      <div class="projects-grid" *ngIf="projects.length > 0">
-        <mat-card class="project-card" *ngFor="let project of projects">
-          <mat-card-header>
-            <div mat-card-avatar class="project-icon">
-              <mat-icon>folder_special</mat-icon>
-            </div>
-            <mat-card-title>{{ project.name }}</mat-card-title>
-          </mat-card-header>
 
-          <mat-card-content>
+      <div class="projects-grid row g-4" *ngIf="projects.length > 0">
+        <div class="card project-card shadow-sm border-0 col-12 col-lg-6" *ngFor="let project of projects">
+          <div class="card-header">
+            <div class="project-icon">
+              <span class="icon" aria-hidden="true">folder_special</span>
+            </div>
+            <h3 class="card-title">{{ project.name }}</h3>
+          </div>
+
+          <div class="card-content">
             <p class="project-description">{{ project.description }}</p>
 
             <div class="features-section" *ngIf="project.features && project.features.length > 0">
               <h4>Key Features:</h4>
               <ul class="features-list">
                 <li *ngFor="let feature of project.features">
-                  <mat-icon>check_circle</mat-icon>
+                  <span class="icon check-icon" aria-hidden="true">check_circle</span>
                   <span>{{ feature }}</span>
                 </li>
               </ul>
@@ -195,25 +193,25 @@
 
             <div class="tech-stack">
               <h4>Technologies:</h4>
-              <mat-chip-set>
-                <mat-chip *ngFor="let tech of project.technologies">
+              <div class="chip-set">
+                <span class="chip" *ngFor="let tech of project.technologies">
                   {{ tech }}
-                </mat-chip>
-              </mat-chip-set>
+                </span>
+              </div>
             </div>
-          </mat-card-content>
+          </div>
 
-          <mat-card-actions>
-            <button mat-button color="primary" *ngIf="project.link">
-              <mat-icon>open_in_new</mat-icon>
+          <div class="card-actions d-flex flex-wrap gap-2">
+            <a *ngIf="project.link" [href]="project.link" class="btn-link rounded-pill" target="_blank" rel="noopener noreferrer">
+              <span class="icon" aria-hidden="true">open_in_new</span>
               View Project
-            </button>
-            <button mat-button>
-              <mat-icon>info</mat-icon>
+            </a>
+            <button type="button" class="btn-link rounded-pill">
+              <span class="icon" aria-hidden="true">info</span>
               Learn More
             </button>
-          </mat-card-actions>
-        </mat-card>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -223,104 +221,112 @@
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
       <p class="section-subtitle">Have a question or want to work together?</p>
-      
-      <div class="contact-content">
+
+      <div class="contact-content row g-4">
         <!-- Contact Form -->
-        <mat-card class="contact-form-card">
-          <mat-card-header>
-            <mat-card-title>Send Me a Message</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
+        <div class="card contact-form-card shadow-sm border-0 col-12 col-lg-7">
+          <div class="card-header">
+            <h3 class="card-title">Send Me a Message</h3>
+          </div>
+          <div class="card-content">
             <div class="success-message" *ngIf="submitted">
-              <mat-icon>check_circle</mat-icon>
+              <span class="icon success-icon" aria-hidden="true">check_circle</span>
               <p>Thank you! Your message has been sent successfully.</p>
             </div>
-            
+
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!submitted">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Your Name</mat-label>
-                <input matInput formControlName="name" placeholder="John Doe">
-                <mat-icon matPrefix>person</mat-icon>
-                <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
+              <div class="form-field full-width">
+                <label class="field-label" for="name">Your Name</label>
+                <div class="input-with-icon">
+                  <span class="field-icon" aria-hidden="true">person</span>
+                  <input id="name" type="text" formControlName="name" placeholder="John Doe">
+                </div>
+                <div class="field-error" *ngIf="contactForm.get('name')?.hasError('required')">
                   Name is required
-                </mat-error>
-              </mat-form-field>
+                </div>
+              </div>
 
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Your Email</mat-label>
-                <input matInput type="email" formControlName="email" placeholder="john@example.com">
-                <mat-icon matPrefix>email</mat-icon>
-                <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+              <div class="form-field full-width">
+                <label class="field-label" for="email">Your Email</label>
+                <div class="input-with-icon">
+                  <span class="field-icon" aria-hidden="true">email</span>
+                  <input id="email" type="email" formControlName="email" placeholder="john@example.com">
+                </div>
+                <div class="field-error" *ngIf="contactForm.get('email')?.hasError('required')">
                   Email is required
-                </mat-error>
-                <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+                </div>
+                <div class="field-error" *ngIf="contactForm.get('email')?.hasError('email')">
                   Please enter a valid email
-                </mat-error>
-              </mat-form-field>
+                </div>
+              </div>
 
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Subject</mat-label>
-                <input matInput formControlName="subject" placeholder="Project Inquiry">
-                <mat-icon matPrefix>subject</mat-icon>
-                <mat-error *ngIf="contactForm.get('subject')?.hasError('required')">
+              <div class="form-field full-width">
+                <label class="field-label" for="subject">Subject</label>
+                <div class="input-with-icon">
+                  <span class="field-icon" aria-hidden="true">subject</span>
+                  <input id="subject" type="text" formControlName="subject" placeholder="Project Inquiry">
+                </div>
+                <div class="field-error" *ngIf="contactForm.get('subject')?.hasError('required')">
                   Subject is required
-                </mat-error>
-              </mat-form-field>
+                </div>
+              </div>
 
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Message</mat-label>
-                <textarea matInput formControlName="message" rows="6" placeholder="Your message here..."></textarea>
-                <mat-icon matPrefix>message</mat-icon>
-                <mat-error *ngIf="contactForm.get('message')?.hasError('required')">
+              <div class="form-field full-width">
+                <label class="field-label" for="message">Message</label>
+                <div class="input-with-icon">
+                  <span class="field-icon" aria-hidden="true">message</span>
+                  <textarea id="message" formControlName="message" rows="6" placeholder="Your message here..."></textarea>
+                </div>
+                <div class="field-error" *ngIf="contactForm.get('message')?.hasError('required')">
                   Message is required
-                </mat-error>
-              </mat-form-field>
+                </div>
+              </div>
 
-              <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid" class="submit-btn">
-                <mat-icon>send</mat-icon>
+              <button type="submit" [disabled]="!contactForm.valid" class="submit-btn">
+                <span class="icon" aria-hidden="true">send</span>
                 Send Message
               </button>
             </form>
-          </mat-card-content>
-        </mat-card>
+          </div>
+        </div>
 
         <!-- Contact Info Cards -->
-        <div class="contact-info-section">
-          <mat-card class="info-card">
-            <mat-card-content>
+        <div class="contact-info-section col-12 col-lg-5 d-flex flex-column gap-3">
+          <div class="card info-card shadow-sm border-0">
+            <div class="card-content">
               <div class="info-item">
-                <mat-icon>email</mat-icon>
+                <span class="icon" aria-hidden="true"><i class="bi bi-envelope">email</i></span>
                 <div>
                   <h4>Email</h4>
                   <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
                 </div>
               </div>
-            </mat-card-content>
-          </mat-card>
+            </div>
+          </div>
 
-          <mat-card class="info-card">
-            <mat-card-content>
+          <div class="card info-card">
+            <div class="card-content">
               <div class="info-item">
-                <mat-icon>phone</mat-icon>
+                <span class="icon" aria-hidden="true">phone</span>
                 <div>
                   <h4>Phone</h4>
                   <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
                 </div>
               </div>
-            </mat-card-content>
-          </mat-card>
+            </div>
+          </div>
 
-          <mat-card class="info-card">
-            <mat-card-content>
+          <div class="card info-card">
+            <div class="card-content">
               <div class="info-item">
-                <mat-icon>location_on</mat-icon>
+                <span class="icon" aria-hidden="true">location_on</span>
                 <div>
                   <h4>Location</h4>
                   <p>{{ personalInfo.location }}</p>
                 </div>
               </div>
-            </mat-card-content>
-          </mat-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -328,6 +334,6 @@
 
   <!-- Floating Action Button -->
   <a [href]="'mailto:' + personalInfo.email" class="fab" aria-label="Send email">
-    <mat-icon>email</mat-icon>
+    <span class="icon" aria-hidden="true">email</span>
   </a>
 </div>
