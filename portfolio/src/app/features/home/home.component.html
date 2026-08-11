@@ -2,49 +2,114 @@
 <div class="single-page-portfolio" *ngIf="personalInfo">
 
   <!-- Hero Section -->
-  <section id="home" class="hero-section">
-    <div class="container py-5">
-      <div class="hero-content fade-in text-center">
-        <div class="hero-avatar">
-          <div class="avatar-circle">
-            <span class="avatar-text">{{ personalInfo.name.charAt(0) }}</span>
-          </div>
-        </div>
+  <section class="hero">
 
-        <h1 class="hero-title">
-          Hi, I'm <span class="highlight">{{ personalInfo.name }}</span>
-        </h1>
+  <!-- LEFT CONTENT -->
+  <div class="hero-content">
 
-        <h2 class="hero-subtitle">{{ personalInfo.role }}</h2>
+    <p class="greeting">Hello, I'm</p>
 
-        <p class="hero-description">
-          {{ personalInfo.profileSummary }}
-        </p>
+    <h1>
+      Shubham
+      <span>Khobragade</span>
+    </h1>
 
-        <div class="hero-actions d-flex justify-content-center flex-wrap gap-3 mb-4">
-          <button type="button" class="action-btn btn btn-primary rounded-pill px-4 py-2" (click)="scrollToSection('projects')">
-            <span class="icon me-2" aria-hidden="true">folder</span>
-            View My Projects
-          </button>
-          <button type="button" class="action-btn btn btn-outline-primary rounded-pill px-4 py-2" (click)="scrollToSection('contact')">
-            <span class="icon me-2" aria-hidden="true">email</span>
-            Get In Touch
-          </button>
-        </div>
-
-        <div class="quick-info d-flex justify-content-center flex-wrap gap-4">
-          <div class="info-item d-flex align-items-center gap-2">
-            <span class="icon" aria-hidden="true">location_on</span>
-            <span>{{ personalInfo.location }}</span>
-          </div>
-          <div class="info-item d-flex align-items-center gap-2">
-            <span class="icon" aria-hidden="true">work</span>
-            <span>{{ personalInfo.experience }} Experience</span>
-          </div>
-        </div>
-      </div>
+    <div class="role-badge">
+      <span>◉</span>
+      Full Stack .NET Developer
     </div>
-  </section>
+
+    <p class="description">
+      Results-driven developer with 4+ years of experience in building
+      scalable enterprise applications using ASP.NET Core, Angular,
+      Web API, SQL Server, Azure, and modern technologies.
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="hero-buttons">
+
+      <button class="btn-primary">
+        View My Work
+        <span>→</span>
+      </button>
+
+      <button class="btn-secondary">
+        Download Resume
+        <span>↓</span>
+      </button>
+
+      <button class="mail-btn">
+        ✉
+      </button>
+
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social-section">
+
+      <span>Connect with me</span>
+
+      <div class="social-links">
+
+        <a href="#" aria-label="LinkedIn">
+          in
+        </a>
+
+        <a href="#" aria-label="GitHub">
+          ◉
+        </a>
+
+        <a href="#" aria-label="Profile">
+          ◎
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- RIGHT CONTENT -->
+  <div class="hero-visual">
+
+    <!-- Glow Circle -->
+    <div class="glow-circle"></div>
+
+    <!-- Profile -->
+    <div class="profile-container">
+      <img
+        src="assets/shubham_image.png"
+        alt="Shubham Khobragade"
+        class="profile-image">
+    </div>
+
+
+    <!-- Technology Badges -->
+
+    <div class="tech-badge dotnet">
+      .NET
+    </div>
+
+    <div class="tech-badge angular">
+      A
+    </div>
+
+    <div class="tech-badge csharp">
+      &lt;/&gt;
+    </div>
+
+    <div class="tech-badge sql">
+      SQL
+    </div>
+
+    <div class="tech-badge azure">
+      Azure
+    </div>
+
+  </div>
+
+</section>
 
   <!-- About Section -->
   <section id="about" class="about-section section">
