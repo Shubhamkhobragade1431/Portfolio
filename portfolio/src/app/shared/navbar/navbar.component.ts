@@ -35,7 +35,7 @@ export class NavbarComponent {
     { section: 'skills', label: 'Skills', icon: 'code' },
     { section: 'experience', label: 'Experience', icon: 'work' },
     { section: 'projects', label: 'Projects', icon: 'folder' },
-    { section: 'contact', label: 'Contact', icon: 'email' }
+    // { section: 'contact', label: 'Contact', icon: 'email' }
   ];
 
   constructor(public themeService: ThemeService) {}

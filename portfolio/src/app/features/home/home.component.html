@@ -30,24 +30,26 @@ Angular.
     <!-- BUTTONS -->
     <div class="hero-buttons">
 
-      <button class="btn-primary">
+      <!-- <button class="btn-primary">
         View My Work
         <span>→</span>
-      </button>
+      </button> -->
 
-      <button class="btn-secondary">
-        Download Resume
-        <span>↓</span>
-      </button>
+    <a class="btn-primary"
+  href="assets/resume/Shubhamk_FullStackDeveloper_FourYearsOFExperiance.pdf"
+  download="Shubham-Khobragade-Resume.pdf"
+ 
+>
+  Download Resume
+  <i class="bi bi-download"></i>
+</a>
 
-      <button class="mail-btn">
-        ✉
-      </button>
+     
 
     </div>
 
     <!-- SOCIAL -->
-    <div class="social-section">
+    <!-- <div class="social-section">
 
       <span>Connect with me</span>
 
@@ -67,7 +69,7 @@ Angular.
 
       </div>
 
-    </div>
+    </div> -->
 
   </div>
 
@@ -185,7 +187,7 @@ Angular.
       <p class="section-subtitle">My technical expertise and proficiency levels</p>
 
       <div class="skills-grid row g-4">
-        <div class="card skill-category-card shadow-sm border-0 col-12 col-md-6 col-xl-4" *ngFor="let skillCategory of skills">
+        <div class="card skill-category-card shadow-sm border-0 col-12  col-xl-4" *ngFor="let skillCategory of skills">
           <div class="card-header">
             <h3 class="card-title">{{ skillCategory.category }}</h3>
           </div>
@@ -193,11 +195,20 @@ Angular.
             <div class="skill-item" *ngFor="let skill of skillCategory.items">
               <div class="skill-header d-flex justify-content-between align-items-center mb-2">
                 <span class="skill-name">{{ skill.name }}</span>
-                <span class="skill-level">{{ skill.level }}%</span>
+                <span class="skill-rating" [attr.aria-label]="skill.level + '% proficiency'">
+                  <span class="stars" aria-hidden="true">
+                    <i
+                      *ngFor="let star of [1, 2, 3, 4, 5]"
+                      class="bi"
+                      [class.bi-star-fill]="skill.level >= star * 20"
+                      [class.bi-star]="skill.level < star * 20"></i>
+                  </span>
+                  
+                </span>
               </div>
-              <div class="progress-bar progress" role="progressbar" [attr.aria-valuenow]="skill.level" aria-valuemin="0" aria-valuemax="100">
+              <!-- <div class="progress-bar progress" role="progressbar" [attr.aria-valuenow]="skill.level" aria-valuemin="0" aria-valuemax="100">
                 <span [style.width.%]="skill.level"></span>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -214,22 +225,30 @@ Angular.
       <div class="timeline">
         <div class="timeline-item position-relative" *ngFor="let exp of experiences; let i = index" [class.current]="exp.current">
           <div class="timeline-marker">
-            <span class="icon" aria-hidden="true">{{ exp.current ? 'star' : 'work' }}</span>
+            <i class="bi" [class.bi-briefcase-fill]="exp.current" [class.bi-building-fill]="!exp.current" aria-hidden="true"></i>
           </div>
           <div class="card timeline-content shadow-sm border-0">
             <div class="card-header">
-              <h3 class="card-title">{{ exp.title }}</h3>
-              <h4 class="card-subtitle">{{ exp.company }}</h4>
+              <div class="experience-title-row">
+                <div>
+                  <span class="experience-label">{{ exp.current ? 'Current role' : 'Previous role' }}</span>
+                  <h4 class="card-title">{{ exp.title }}</h4>
+                </div>
+                <span class="experience-status" *ngIf="exp.current">
+                  <i class="bi bi-circle-fill" aria-hidden="true"></i> Active
+                </span>
+              </div>
+              <h4 class="card-subtitle"><i class="bi bi-building" aria-hidden="true"></i> {{ exp.company }}</h4>
             </div>
             <div class="card-content">
               <div class="experience-meta d-flex flex-column gap-2 mb-3">
                 <div class="meta-item d-flex align-items-center gap-2">
-                  <span class="icon" aria-hidden="true">calendar_today</span>
+                  <i class="bi bi-calendar3" aria-hidden="true"></i>
                   <span>{{ exp.period }}</span>
                   <span class="current-badge" *ngIf="exp.current">Current</span>
                 </div>
                 <div class="meta-item" *ngIf="exp.location">
-                  <span class="icon" aria-hidden="true">location_on</span>
+                  <i class="bi bi-geo-alt" aria-hidden="true"></i>
                   <span>{{ exp.location }}</span>
                 </div>
               </div>
@@ -250,32 +269,39 @@ Angular.
       <p class="section-subtitle">Enterprise applications I've developed using ASP.NET Core, Angular, and modern technologies</p>
 
       <div class="projects-grid row g-4" *ngIf="projects.length > 0">
-        <div class="card project-card shadow-sm border-0 col-12 col-lg-6" *ngFor="let project of projects">
+        <div class="card project-card shadow-sm border-0 col-12 " *ngFor="let project of projects">
           <div class="card-header">
-            <div class="project-icon">
-              <span class="icon" aria-hidden="true">folder_special</span>
+            <div class="project-heading">
+              <div class="project-icon" aria-hidden="true">
+                <i class="bi bi-folder2-open"></i>
+              </div>
+              <div>
+                <span class="project-label">Featured project</span>
+                <h3 class="card-title">{{ project.name }}</h3>
+              </div>
             </div>
-            <h3 class="card-title">{{ project.name }}</h3>
+            <i class="bi bi-arrow-up-right project-arrow" aria-hidden="true"></i>
           </div>
 
           <div class="card-content">
             <p class="project-description">{{ project.description }}</p>
 
             <div class="features-section" *ngIf="project.features && project.features.length > 0">
-              <h4>Key Features:</h4>
+              <h4><i class="bi bi-stars" aria-hidden="true"></i> Key features</h4>
               <ul class="features-list">
                 <li *ngFor="let feature of project.features">
-                  <span class="icon check-icon" aria-hidden="true">check_circle</span>
+                  <i class="bi bi-check-circle-fill check-icon" aria-hidden="true"></i>
                   <span>{{ feature }}</span>
                 </li>
               </ul>
             </div>
 
             <div class="tech-stack">
-              <h4>Technologies:</h4>
+              <h4><i class="bi bi-code-slash" aria-hidden="true"></i> Technologies</h4>
               <div class="chip-set">
                 <span class="chip" *ngFor="let tech of project.technologies">
-                  {{ tech }}
+                  <i class="bi bi-circle-fill" style="padding: 0px 4px;" aria-hidden="true"></i>
+                   {{ tech }}
                 </span>
               </div>
             </div>
@@ -283,11 +309,11 @@ Angular.
 
           <div class="card-actions d-flex flex-wrap gap-2">
             <a *ngIf="project.link" [href]="project.link" class="btn-link rounded-pill" target="_blank" rel="noopener noreferrer">
-              <span class="icon" aria-hidden="true">open_in_new</span>
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
               View Project
             </a>
             <button type="button" class="btn-link rounded-pill">
-              <span class="icon" aria-hidden="true">info</span>
+              <i class="bi bi-info-circle" aria-hidden="true"></i>
               Learn More
             </button>
           </div>
@@ -297,14 +323,14 @@ Angular.
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact-section section">
+  <!-- <section id="contact" class="contact-section section">
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
       <p class="section-subtitle">Have a question or want to work together?</p>
 
       <div class="contact-content row g-4">
         <!-- Contact Form -->
-        <div class="card contact-form-card shadow-sm border-0 col-12 col-lg-7">
+        <!--div class="card contact-form-card shadow-sm border-0 col-12 col-lg-7">
           <div class="card-header">
             <h3 class="card-title">Send Me a Message</h3>
           </div>
@@ -368,10 +394,10 @@ Angular.
               </button>
             </form>
           </div>
-        </div>
+        </div>-->
 
         <!-- Contact Info Cards -->
-        <div class="contact-info-section col-12 col-lg-5 d-flex flex-column gap-3">
+         <!--<div class="contact-info-section col-12 col-lg-5 d-flex flex-column gap-3">
           <div class="card info-card shadow-sm border-0">
             <div class="card-content">
               <div class="info-item">
@@ -409,8 +435,8 @@ Angular.
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </div> -->
+  <!-- </section> --> 
 
   <!-- Floating Action Button -->
   <a [href]="'mailto:' + personalInfo.email" class="fab" aria-label="Send email"><i class="bi bi-envelope-fill fs-2"></i>

@@ -125,7 +125,7 @@ export class PortfolioDataService {
         description: 'Manufacturing traceability system using barcodes for tracking products through production lifecycle with real-time dashboards.',
         technologies: ['ASP.NET Core Web API', 'Angular', 'Entity Framework Core', 'MS SQL Server', 'SignalR'],
         features: [
-          'Barcode scanning integration',
+          'automatic storage-slot allocation for raw materials',
           'Real-time production tracking',
           'Interactive dashboards',
           'Quality control checkpoints',
