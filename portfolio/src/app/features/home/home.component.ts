@@ -79,4 +79,13 @@ export class HomeComponent implements OnInit {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+
+  downloadResume(): void {
+  const link = document.createElement('a');
+
+  link.href = 'assets/resume/Shubham-Khobragade-Resume.pdf';
+  link.download = 'Shubham-Khobragade-Resume.pdf';
+
+  link.click();
+}
 }
