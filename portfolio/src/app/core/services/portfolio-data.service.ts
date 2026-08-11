@@ -60,11 +60,11 @@ export class PortfolioDataService {
         category: 'Frameworks & Libraries',
         items: [
           { name: 'ASP.NET Core', level: 90 },
+          { name: 'ASP.NET core Web Api', level: 85 },
           { name: 'ASP.NET MVC', level: 85 },
           { name: 'Entity Framework Core', level: 85 },
           { name: 'Angular', level: 80 },
           { name: 'Bootstrap', level: 85 },
-          { name: 'LINQ', level: 85 }
         ]
       },
       {
