@@ -30,7 +30,7 @@ export class PortfolioDataService {
       location: 'Pune, Maharashtra, India',
       experience: '4+ Years',
       email: 'shubhamkhobragadeofficial@gmail.com',
-      phone: '+91 879320****',
+      phone: '+91 xxxxxxxxxx',
       profileSummary: [
         'Full Stack .NET Developer skilled in ASP.NET Core, C#, Angular, JavaScript, SQL Server, and Web API for building dynamic, high-performing web applications. Developed scalable RESTful APIs and responsive user interfaces using Angular, Bootstrap, and CSS3, resulting in a measurable improvement in user engagement metrics.',
         'Implemented efficient data access layers utilizing ADO.NET and Entity Framework, leading to optimized data retrieval speeds and enhanced application performance. Created and maintained custom middleware for authentication, logging, and error handling, bolstering application security and streamlining debugging processes.',
