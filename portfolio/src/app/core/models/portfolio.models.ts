@@ -52,3 +52,25 @@ export interface SocialLink {
   url: string;
   icon: string;
 }
+
+export interface HeroSection {
+  greeting: string;
+  name: {
+    firstName: string;
+    lastName: string;
+  };
+  title: string;
+  description: string;
+  profileImage: string;
+  techBadges: string[];
+  ctaButtons: {
+    primary: {
+      text: string;
+      action: string;
+    };
+    secondary: {
+      text: string;
+      link: string;
+    };
+  };
+}

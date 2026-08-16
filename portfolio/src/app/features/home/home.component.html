@@ -2,36 +2,28 @@
 <div class="single-page-portfolio" *ngIf="personalInfo">
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
+  <section id="home" class="hero" *ngIf="heroSection">
 
     <!-- LEFT CONTENT -->
     <div class="hero-content">
-      <p class="greeting">Hello, I'm</p>
-      <h1>Shubham<span>Khobragade</span></h1>
+      <p class="greeting">{{ heroSection.greeting }}</p>
+      <h1>{{ heroSection.name.firstName }}<span>{{ heroSection.name.lastName }}</span></h1>
       <div class="role-badge">
         <span>◉</span>
-        Full Stack .NET Developer
+        {{ heroSection.title }}
       </div>
       <p class="description">
-        Dot NET Developer with 4+ years of experience building scalable, enterprise-level web applications using .NET
-        Core, Web API, and SQL Server. Highly skilled in N-tier architecture, repository and service pattern
-        implementation, ORM frameworks, and RESTful API design. Proficient in C# and SQL Server for backend
-        development, and experienced in front end technologies including HTML, CSS, JavaScript, and TypeScript with
-        Angular.
+        {{ heroSection.description }}
       </p>
       <!-- BUTTONS -->
       <div class="hero-buttons">
-        <!-- <button class="btn-primary">
-          View My Work
-          <span>→</span>
-        </button> -->
         <button class="btn-primary" (click)="downloadResume()">
-          Download Resume
+          {{ heroSection.ctaButtons.primary.text }}
           <i class="bi bi-download"></i>
         </button>
 
-        <a href="#projects" class="btn btn-outline-light">
-          View Projects
+        <a [href]="heroSection.ctaButtons.secondary.link" class="btn btn-outline-light">
+          {{ heroSection.ctaButtons.secondary.text }}
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
@@ -65,30 +57,29 @@
 
       <!-- Profile -->
       <div class="profile-container">
-        <img src="assets/heroImg.png" alt="Shubham Khobragade" class="profile-image hero-image">
+        <img [src]="heroSection.profileImage" [alt]="heroSection.name.firstName + ' ' + heroSection.name.lastName" class="profile-image hero-image">
       </div>
 
 
       <!-- Technology Badges -->
-
-      <div class="tech-badge dotnet">
-        .NET
+      <div class="tech-badge dotnet" *ngIf="heroSection.techBadges[0]">
+        {{ heroSection.techBadges[0] }}
       </div>
 
-      <div class="tech-badge angular">
-        A
+      <div class="tech-badge angular" *ngIf="heroSection.techBadges[1]">
+        {{ heroSection.techBadges[1] }}
       </div>
 
-      <div class="tech-badge csharp">
-        &lt;/&gt;
+      <div class="tech-badge csharp" *ngIf="heroSection.techBadges[2]">
+        {{ heroSection.techBadges[2] }}
       </div>
 
-      <div class="tech-badge sql">
-        SQL
+      <div class="tech-badge sql" *ngIf="heroSection.techBadges[3]">
+        {{ heroSection.techBadges[3] }}
       </div>
 
-      <div class="tech-badge azure">
-        Azure
+      <div class="tech-badge azure" *ngIf="heroSection.techBadges[4]">
+        {{ heroSection.techBadges[4] }}
       </div>
 
     </div>

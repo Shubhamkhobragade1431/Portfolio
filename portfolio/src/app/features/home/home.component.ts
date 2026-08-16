@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
-import { PersonalInfo, Skill, Experience, Project, Education } from '../../core/models/portfolio.models';
+import { PersonalInfo, Skill, Experience, Project, Education, HeroSection } from '../../core/models/portfolio.models';
 
 /**
  * Home Component - Single Page Scrolling Portfolio
@@ -19,6 +19,7 @@ import { PersonalInfo, Skill, Experience, Project, Education } from '../../core/
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  heroSection: HeroSection | null = null;
   personalInfo: PersonalInfo | null = null;
   skills: Skill[] = [];
   experiences: Experience[] = [];
@@ -41,6 +42,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // Load all data
+    this.portfolioService.getHeroSection().subscribe(hero => {
+      this.heroSection = hero;
+    });
+
     this.portfolioService.getPersonalInfo().subscribe(info => {
       this.personalInfo = info;
     });

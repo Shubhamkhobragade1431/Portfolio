@@ -5,7 +5,8 @@ import {
   Skill,
   Experience,
   Project,
-  Education
+  Education,
+  HeroSection
 } from '../models/portfolio.models';
 
 /**
@@ -19,6 +20,34 @@ import {
 export class PortfolioDataService {
 
   constructor() { }
+
+  /**
+   * Get hero section data
+   */
+  getHeroSection(): Observable<HeroSection> {
+    const hero: HeroSection = {
+      greeting: 'Hello, I\'m',
+      name: {
+        firstName: 'Shubham',
+        lastName: 'Khobragade'
+      },
+      title: 'Full Stack .NET Developer',
+      description: 'Dot NET Developer with 4+ years of experience building scalable, enterprise-level web applications using .NET Core, Web API, and SQL Server. Highly skilled in N-tier architecture, repository and service pattern implementation, ORM frameworks, and RESTful API design. Proficient in C# and SQL Server for backend development, and experienced in front end technologies including HTML, CSS, JavaScript, and TypeScript with Angular.',
+      profileImage: 'assets/heroImg.png',
+      techBadges: ['.NET', 'A', '</>', 'SQL', 'Azure'],
+      ctaButtons: {
+        primary: {
+          text: 'Download Resume',
+          action: 'downloadResume'
+        },
+        secondary: {
+          text: 'View Projects',
+          link: '#projects'
+        }
+      }
+    };
+    return of(hero);
+  }
 
   /**
    * Get personal information
