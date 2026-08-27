@@ -34,26 +34,40 @@
 .brand {
   display: flex;
   align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
   gap: 12px;
   text-decoration: none;
   color: inherit;
   font-weight: 600;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 
   &:hover {
     opacity: 0.8;
+    transform: translateY(-2px);
   }
 
-  .brand-name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    font-size: 18px;
-    font-weight: 700;
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+    border-radius: 4px;
+  }
+
+  .brand-logo {
+    display: block;
+    width: clamp(112px, 13vw, 176px);
+    height: auto;
+    max-height: 48px;
+    object-fit: contain;
+    object-position: left center;
+    flex: 0 1 auto;
+    animation: logoReveal 0.8s ease-out both;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05) rotate(-1deg);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    }
   }
 
   .brand-text {
@@ -62,6 +76,32 @@
     @media (max-width: 600px) {
       display: none;
     }
+  }
+
+  @media (max-width: 600px) {
+    .brand-logo {
+      width: clamp(96px, 32vw, 132px);
+      max-height: 40px;
+    }
+  }
+}
+
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-12px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .brand .brand-logo {
+    animation: none;
+    transition: none;
   }
 }
 
